@@ -19,9 +19,9 @@ More "games" may be added over time.
 
 - Python 3.10+
 - PySide6 (6.9)
-- pygame
-- matplotlib
-- numpy
+- pygame-ce (2.5.6)
+- matplotlib (3.10.8)
+- numpy (2.2.4)
 
 ### Install
 
