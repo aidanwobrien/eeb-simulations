@@ -26,8 +26,8 @@ More "games" may be added over time.
 ### Install
 
 ```bash
-git clone <https://github.com/aidanwobrien/eeb-simulations>
-cd <eeb-simulations>
+git clone https://github.com/aidanwobrien/eeb-simulations
+cd eeb-simulations
 pip install -r requirements.txt
 ```
 
@@ -126,7 +126,3 @@ The Hawk-Dove game is a classic model from evolutionary game theory in which ind
 
 - [Lotka-Volterra equations (Wikipedia)](https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations)
 - [Hawk-dove game (Wikipedia)](https://en.wikipedia.org/wiki/Chicken_(game))
-
-## License
-
-<!-- TODO: add a license -->
