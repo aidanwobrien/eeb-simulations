@@ -469,6 +469,8 @@ class LotkaVolterraWindow(QWidget):
         if self.sim_running:
             self.stop_simulation()
             self.close()
+        else:
+            self.close()
 
     # def show_error_dialog(self, message):
     #     msg_box = QMessageBox(self)
