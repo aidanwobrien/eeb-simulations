@@ -2,6 +2,8 @@
 
 A PySide6 desktop app that houses interactive **ecology and evolutionary biology (EEB) "games"**: small, parametrizable simulations for exploring core concepts in the field. Pick a game from the launcher, set its parameters, run the simulation, and watch the dynamics unfold through live plots and a real-time visualization.
 
+Inspired by [Theoertical Community Ecology Lab](https://stefanoallesina.github.io/Theoretical_Community_Ecology/)
+
 ![Game selection screen](docs/launcher.png)
 
 ## Games
