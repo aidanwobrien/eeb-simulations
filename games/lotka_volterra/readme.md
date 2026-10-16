@@ -9,11 +9,11 @@
 
 ## Phase Portrait:
 
-![Phase Portrait Plot](docs/phase_portrait.png)
+![Phase Portrait Plot](../../docs/phase_portrait.png)
 
 ## Time-Series Plot:
 
-![Time Series Plot](docs/time_series.png)
+![Time Series Plot](../../docs/time_series.png)
 
 ## The Rules:
 - Plant tiles produce food (energy).
