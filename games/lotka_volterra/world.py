@@ -237,7 +237,7 @@ class World:
                     nc = self.wrap(h.col + dc, self.cols)
                     if self.occupancy[nr][nc] is None and (nr, nc) not in self.rocks:
                         h.energy -= self.h_repro_cost
-                        child = Herbivore(nr, nc, self.h_init, self.h_food_gain, self.h_food_wait, self.h_repro_th, self.h_repro_th, self.h_move_cost, self.h_basal_cost)
+                        child = Herbivore(nr, nc, self.h_init, self.h_food_gain, self.h_food_wait, self.h_repro_th, self.h_repro_cost, self.h_move_cost, self.h_basal_cost)
                         new_herbivores.append(child)
                         self.occupancy[nr][nc] = child
                         break
@@ -369,11 +369,11 @@ class World:
 
         for h in self.herbivores:
             cx, cy = self.grid[h.row][h.col].iso_centroid
-            pg.draw.circle(screen, BLUE, (int(cx), int(cy)), 3)
+            pg.draw.circle(screen, BLUE, (int(cx), int(cy)), 1)
 
         for p in self.predators:
             cx, cy = self.grid[p.row][p.col].iso_centroid
-            pg.draw.circle(screen, RED, (int(cx), int(cy)), 3)
+            pg.draw.circle(screen, RED, (int(cx), int(cy)), 1)
 
     # ---------- UTILITIES ----------
     def cart_to_iso(self, x, y):

@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QTextBrowser
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QTextBrowser, QScrollArea
 from PySide6.QtCore import Qt
 from settings import HAWK_DOVE_TEXT
 
@@ -17,6 +17,13 @@ class DescriptionWidget(QWidget):
         self.static_text.setAlignment(Qt.AlignJustify)
         self.static_text.setTextFormat(Qt.RichText)
         self.static_text.setStyleSheet("font-size: 14px; line-height: 1.5;")
+        self.static_text.setMargin(16)
+
+        # Scroll area so long descriptions can be scrolled
+        self.scroll_area = QScrollArea()
+        self.scroll_area.setWidgetResizable(True)
+        self.scroll_area.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.scroll_area.setWidget(self.static_text)
 
         # QTextBrowser for links
         self.text_browser = QTextBrowser()
@@ -26,7 +33,7 @@ class DescriptionWidget(QWidget):
         # Layout
         layout = QVBoxLayout(self)
         layout.addWidget(self.label)
-        layout.addWidget(self.static_text)
+        layout.addWidget(self.scroll_area)
         layout.addWidget(self.text_browser)
 
     def set_text(self, label, static_text, html_text):

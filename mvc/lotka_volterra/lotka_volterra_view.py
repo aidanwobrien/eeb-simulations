@@ -46,7 +46,7 @@ class LotkaVolterraWindow(QWidget):
         self.grid_y = QLineEdit("100")
         self.initial_prey_pop = QLineEdit("200")
         self.initial_predator_pop = QLineEdit("20")
-        self.frames_per_generation = QLineEdit("60")
+        self.frames_per_generation = QLineEdit("1")
         self.perlin_scale = QLineEdit("18")
         self.perlin_noise_scale = QLineEdit("9")
 
@@ -230,6 +230,7 @@ class LotkaVolterraWindow(QWidget):
 
         self.tabs.addTab(self.time_series_tab, "Time Series")
         self.tabs.addTab(self.phase_plot_tab, "Phase Plot")
+        self.tabs.setCurrentWidget(self.time_series_tab)
 
         bottom_button_layout.addWidget(self.back_button)
         bottom_button_layout.addWidget(self.close_button)
@@ -432,16 +433,18 @@ class LotkaVolterraWindow(QWidget):
             self.sim_timer.start(TIMER_AMNT)
             self.pause_button.setText("Pause")
             self.sim_status_label.setText("Simulation: Running")
-            self.update_button_colors()
             self.sim_paused = False
         else:
             self.sim_timer.stop()
             self.pause_button.setText("Resume")
             self.sim_status_label.setText("Simulation: Paused")
-            self.update_button_colors()
             self.sim_paused = True
 
+        self.update_button_colors()
+
     def stop_simulation(self):
+        if self.sim_timer is None:
+            return
         self.sim_timer.stop()
         self.sim_status_label.setText("Simulation: Not Running")
         try:

@@ -20,18 +20,57 @@ HAWK_DOVE_TEXT = """
             </ul>
         </p>
         <p>
-            The outcome depends on the <i>payoffs</i> for winning, losing, or sharing resources:
-            <ul>
-                <li>Hawk vs Hawk: One wins, one loses (possible injury)</li>
-                <li>Hawk vs Dove: Hawk wins, Dove loses</li>
-                <li>Dove vs Dove: They share the resource</li>
-            </ul>
+            The outcome depends on two parameters: the <b>value</b> of the resource 
+            (<i>V</i>) and the <b>cost</b> of an injury from fighting (<i>C</i>). 
+            The payoff to the individual in the row, against an opponent in the column, is:
+        </p>
+        <table border="1" cellpadding="6" cellspacing="0" align="center">
+            <tr>
+                <th></th>
+                <th>vs Hawk</th>
+                <th>vs Dove</th>
+            </tr>
+            <tr>
+                <td><b>Hawk</b></td>
+                <td align="center">(<i>V</i> &minus; <i>C</i>) / 2</td>
+                <td align="center"><i>V</i></td>
+            </tr>
+            <tr>
+                <td><b>Dove</b></td>
+                <td align="center">0</td>
+                <td align="center"><i>V</i> / 2</td>
+            </tr>
+        </table>
+        <ul>
+            <li>Hawk vs Hawk: each wins half the time and pays the cost when it loses, 
+                so the average payoff is (<i>V</i> &minus; <i>C</i>) / 2</li>
+            <li>Hawk vs Dove: the Hawk takes the whole resource, <i>V</i>; the Dove gets 0</li>
+            <li>Dove vs Dove: they share the resource, <i>V</i> / 2 each</li>
+        </ul>
+        <p>
+            Let <i>p</i> be the fraction of Hawks in the population. The average payoff 
+            of each strategy is:
+        </p>
+        <p align="center">
+            <i>E</i>(Hawk) = <i>p</i> &middot; (<i>V</i> &minus; <i>C</i>) / 2 + (1 &minus; <i>p</i>) &middot; <i>V</i>
+            <br>
+            <i>E</i>(Dove) = (1 &minus; <i>p</i>) &middot; <i>V</i> / 2
         </p>
         <p>
             Over time, the frequencies of Hawks and Doves in a population reach an 
             <b>evolutionarily stable strategy (ESS)</b>, where no individual can improve 
             its fitness by unilaterally changing strategy.
         </p>
+        <ul>
+            <li>If <i>V</i> &ge; <i>C</i>, fighting is always worth the risk, 
+                so Hawks take over the whole population (<i>p</i>* = 1).</li>
+            <li>If <i>C</i> &gt; <i>V</i>, neither strategy wins outright. Setting 
+                <i>E</i>(Hawk) = <i>E</i>(Dove) and solving for <i>p</i> gives a stable mix:
+                <p align="center"><b><i>p</i>* = <i>V</i> / <i>C</i></b></p>
+                Hawks are favored when they are rarer than <i>p</i>*, and Doves are favored when 
+                Hawks are more common than <i>p</i>*, so the population is pulled back toward 
+                <i>p</i>*.</li>
+        </ul>
         <p>
             This model illustrates how aggression and cooperation can coexist in populations, 
             and is a foundational example in <i>evolutionary game theory</i>.
@@ -43,6 +82,7 @@ HAWK_DOVE_TEXT = """
 
 HAWK_DOVE_LABEL = "Hawk-Dove Evolutionary Game"
 HAWK_DOVE_WIKI = '<a href="https://en.wikipedia.org/wiki/Hawk–dove_game">Hawk-Dove Game Wikipedia</a>'
+
 
 
 
