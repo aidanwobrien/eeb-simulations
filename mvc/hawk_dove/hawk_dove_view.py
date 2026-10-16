@@ -133,6 +133,7 @@ class HawkDoveWindow(QWidget):
         self.time_series_tab = PlotTab(self.world, self.grid_x, self.grid_y)
         # self.phase_plot_tab = PhasePlotTab(self.world)
         self.tabs.addTab(self.time_series_tab, "Time Series")
+        self.tabs.setCurrentWidget(self.time_series_tab)
         # self.tabs.addTab(self.phase_plot_tab, "Phase Plot")
 
         # ---------- Layout ----------
