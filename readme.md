@@ -52,57 +52,6 @@ python app.py
 
 ---
 
-## Lotka-Volterra Population Game
-
-![Lotka-Volterra simulation](docs/lotka_volterra.png)
-
-The Lotka-Volterra (LV) equations are a foundational model in ecology describing how two interacting species, a predator and its prey, change in abundance over time. This simulation implements an agent-based, spatial version of the model and extends it to a three-tiered ecosystem of plants, herbivores and carnivores.
-
-### The World
-
-- A toroidal (wrapping), tile-based isometric grid. The size is configurable (width and height).
-- Tiles are either **empty** or **rock**.
-  - Empty tiles can contain plants, herbivores and carnivores.
-  - Rocks are impassable and are generated with Perlin noise.
-
-### The Model
-
-- The main goal was to build a 3-tiered ecosystem whose populations cycle through time in a stable phase, without any population crashing.
-- The classic LV equations ignore space: the populations are effectively "well-mixed" every tick. In this model, movement costs, localized reproduction and impassable rocks introduce clustering, refuges and overall spatiality, and therefore more noise than the classic equations produce.
-
-### The Rules
-
-- Plant tiles produce food (energy).
-- Each tick, **herbivores** move one space in a random direction. If they land on a plant tile, they eat it and gain energy. Once eaten, the plant is removed and regenerates after a fixed time (the regeneration rate).
-- Each tick, **carnivores** move two spaces toward the closest herbivore. If they are on a tile with a herbivore, they eat it and gain energy. Carnivores must wait two ticks before eating again.
-- Herbivores and carnivores **reproduce** when their energy reaches a reproduction threshold, at an energy cost (the reproduction cost). Offspring appear on a random unblocked neighbouring tile. If all neighbours are blocked, the animal does nothing that tick and keeps its energy.
-- Herbivores and carnivores **lose energy** every tick (a basal cost) and with each movement (a movement cost).
-
-### Parameters
-
-The parameter panel (scrollable) controls the world and food settings, including:
-
-| Parameter | Description |
-|-----------|-------------|
-| Initial prey population | Starting number of herbivores |
-| Initial predator population | Starting number of carnivores |
-| Grid width / height | Size of the world in tiles |
-| Frames per generation | Number of rendered frames per simulation tick |
-
-Further parameters (such as energy gains and costs, reproduction threshold and cost, and plant regeneration time) are available further down the panel.
-
-<!-- TODO: list the remaining parameters and their defaults -->
-
-### Visualization
-
-- **Simulation window (pygame):** a real-time isometric view of the world with a live counter of the current time, plants, herbivores and carnivores. Herbivores are drawn in blue and carnivores in red.
-- **Time Series plot:** population of plants, herbivores and carnivores against ticks.
-- **Phase Plot:** the phase portrait of predator vs. prey abundance, where stable cycling appears as a closed orbit.
-
-<!-- TODO: add screenshots of the Time Series and Phase Plot tabs -->
-
----
-
 ## Hawk-Dove Game
 
 ![Hawk-Dove simulation](docs/hawk_dove.png)
@@ -161,6 +110,57 @@ Notes on the dynamics:
 
 - **Simulation window (pygame):** a real-time isometric view of the world with a live counter of the current generation, Hawks and Doves. Hawks are drawn in red, Doves in blue, and rocks in grey.
 - **Time Series plot:** number of Hawks and Doves against generation.
+
+---
+
+## Lotka-Volterra Population Game
+
+![Lotka-Volterra simulation](docs/lotka_volterra.png)
+
+The Lotka-Volterra (LV) equations are a foundational model in ecology describing how two interacting species, a predator and its prey, change in abundance over time. This simulation implements an agent-based, spatial version of the model and extends it to a three-tiered ecosystem of plants, herbivores and carnivores.
+
+### The World
+
+- A toroidal (wrapping), tile-based isometric grid. The size is configurable (width and height).
+- Tiles are either **empty** or **rock**.
+  - Empty tiles can contain plants, herbivores and carnivores.
+  - Rocks are impassable and are generated with Perlin noise.
+
+### The Model
+
+- The main goal was to build a 3-tiered ecosystem whose populations cycle through time in a stable phase, without any population crashing.
+- The classic LV equations ignore space: the populations are effectively "well-mixed" every tick. In this model, movement costs, localized reproduction and impassable rocks introduce clustering, refuges and overall spatiality, and therefore more noise than the classic equations produce.
+
+### The Rules
+
+- Plant tiles produce food (energy).
+- Each tick, **herbivores** move one space in a random direction. If they land on a plant tile, they eat it and gain energy. Once eaten, the plant is removed and regenerates after a fixed time (the regeneration rate).
+- Each tick, **carnivores** move two spaces toward the closest herbivore. If they are on a tile with a herbivore, they eat it and gain energy. Carnivores must wait two ticks before eating again.
+- Herbivores and carnivores **reproduce** when their energy reaches a reproduction threshold, at an energy cost (the reproduction cost). Offspring appear on a random unblocked neighbouring tile. If all neighbours are blocked, the animal does nothing that tick and keeps its energy.
+- Herbivores and carnivores **lose energy** every tick (a basal cost) and with each movement (a movement cost).
+
+### Parameters
+
+The parameter panel (scrollable) controls the world and food settings, including:
+
+| Parameter | Description |
+|-----------|-------------|
+| Initial prey population | Starting number of herbivores |
+| Initial predator population | Starting number of carnivores |
+| Grid width / height | Size of the world in tiles |
+| Frames per generation | Number of rendered frames per simulation tick |
+
+Further parameters (such as energy gains and costs, reproduction threshold and cost, and plant regeneration time) are available further down the panel.
+
+<!-- TODO: list the remaining parameters and their defaults -->
+
+### Visualization
+
+- **Simulation window (pygame):** a real-time isometric view of the world with a live counter of the current time, plants, herbivores and carnivores. Herbivores are drawn in blue and carnivores in red.
+- **Time Series plot:** population of plants, herbivores and carnivores against ticks.
+- **Phase Plot:** the phase portrait of predator vs. prey abundance, where stable cycling appears as a closed orbit.
+
+---
 
 ## Project Structure
 
