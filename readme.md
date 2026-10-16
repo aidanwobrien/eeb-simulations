@@ -10,9 +10,11 @@ Inspired by [Theoertical Community Ecology Lab](https://stefanoallesina.github.i
 
 | Game | Concept |
 |------|---------|
-| [Lotka-Volterra](#lotka-volterra-population-game) | Predator-prey population dynamics in a spatial, three-tier ecosystem |
 | [Hawk-Dove](#hawk-dove-game) | Evolutionary game theory: conflict strategies and evolutionarily stable strategies (ESS) |
+| [Lotka-Volterra](#lotka-volterra-population-game) | Predator-prey population dynamics in a spatial, three-tier ecosystem |
+
 More "games" may be added over time.
+
 
 ## Getting Started
 
@@ -177,3 +179,10 @@ Notes on the dynamics:
 
 - [Lotka-Volterra equations (Wikipedia)](https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations)
 - [Hawk-dove game (Wikipedia)](https://en.wikipedia.org/wiki/Chicken_(game))
+
+### Ideas for Future Games
+
+- **Neutral Island Game:** Hubbell's neutral theory and island biogeography. Species richness, rank-abundance curves and species-area relationships emerge from drift, dispersal and immigration alone.
+- **Metapopulation Dynamics:** Levins-style colonization and extinction across habitat patches separated by rock.
+- **Wildfire Spread:** Fire spreading across a landscape with varying fuel load. Ignition probability depends on neighbouring fire and local fuel, producing percolation thresholds, fire-scar mosaics and succession as burned areas regrow. (See Drossel-Schwabl forest fire models)
+- **Predator-Prey Resistance Surface:** Predators and prey moving across a landscape where each tile has a movement cost. Corridors, barriers and refuges shape encounter rates, population cycles and persistence. (See Circuit Theory and Least Cost Pathways)
